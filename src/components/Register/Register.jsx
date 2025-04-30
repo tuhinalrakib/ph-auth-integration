@@ -1,5 +1,8 @@
-import React from 'react';
 import { Link } from 'react-router';
+import { createUserWithEmailAndPassword } from "firebase/auth"
+import { auth } from '../../firebase/firebase.init';
+
+
 
 const Register = () => {
 
@@ -11,6 +14,13 @@ const Register = () => {
         const password = e.target.password.value 
 
         console.log(name,email,password)
+        createUserWithEmailAndPassword(auth, email, password)
+        .then(res=>{
+            console.log(res.user)
+        })
+        .catch(e=>{
+            console.log(e.message)
+        })
     }
 
     return (
