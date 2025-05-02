@@ -12,6 +12,7 @@ const Navbar = () => {
         <li><NavLink to="/">Home</NavLink></li>
         <li><NavLink to="/login">Login</NavLink></li>
         <li><NavLink to="/register">Register</NavLink></li>
+        <li><NavLink to="/dashboard">Dashboard</NavLink></li>
         {
             user && <>
                 <li><NavLink to="/profile">Profile</NavLink></li>
@@ -22,6 +23,12 @@ const Navbar = () => {
 
     const handleSignOut = ()=>{
         signOutUser()
+        .then(()=>{
+            console.log("Sign Out Successfully")
+        })
+        .catch(e=>{
+            console.log(e.message)
+        })
     }
 
     return (
